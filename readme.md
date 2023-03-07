@@ -16,10 +16,10 @@
 4. `yarn`
 5. `yarn dev`
 ### Delete unnecessary content
-In App.js, delete everything in div `<div className="App">`
+In App.jsx, delete everything in div `<div className="App">`
 ### Predefined Data
 ```  js
-// src/App.js
+// src/App.jsx
 const  shoppingListPre  = [
 	{
 		name: "Pizza 🍕",
@@ -37,7 +37,7 @@ const  shoppingListPre  = [
 ```
 ### Initializing Data Structure
 ```js
-// src/App.js - inside App function
+// src/App.jsx - inside App function
 const [shoppingList, setShoppingList] =  useState([]);
 
 useEffect(() => {
@@ -47,7 +47,7 @@ useEffect(() => {
 ```
 ### Write Initial HTML
 ```js
-// src/App.js - inside return of App function
+// src/App.jsx - inside return of App function
 <div  className="App">
 	<h1>Shopping list 🛒 </h1>
 	<div  className="list">
@@ -61,7 +61,7 @@ useEffect(() => {
 ```
 ### Write Initial CSS
 ```css
-/// src/App.css
+/* src/App.css */
 #root {
 	margin: 0  auto;
 	padding: 2rem;
@@ -133,22 +133,6 @@ input {
 Create folder named *components* in *src* folder 
 Create file *Item.jsx* in *components* folder
 **Note: First letter of component file is capital. E.g. Item.jsx- First letter i must be capital**
-```js
-// src/components/Item.jsx
-const  Item  = ({ name, quantity }) => {
-	return (
-		<div className="item">
-			<p>{name}</p>
-			<span>
-				<button>-</button> //decrement
-				<p>{quantity}</p>
-				<button>+</button> //increment
-			</span>
-		</div>
-	);
-};
-export  default  Item;
-```
 **Function name must also start with captial letter, and be same as File name**
 ### Updating or Deleting the Item
 ```js
@@ -188,26 +172,7 @@ export  default  Item;
 
 ```
 ### Writing the Add Item Form Component
-```js
-// src/components/AddItemForm.jsx
-const  AddItemForm  = ({shoppingList, setShoppingList) => {
-	return (
-		<form
-			onSubmit={(e) => {
-			e.preventDefault();
-			const  formData  =  new  FormData(e.currentTarget);
-			const  name  =  formData.get("NAME").valueOf();
-			const  quantity  =  Number(formData.get("QUANTITY").valueOf());
-			console.log(name, quantity);
-		}}>
-			<input  type="text"  name="NAME"  placeholder="name"  />
-			<input  type="number"  name="QUANTITY"  placeholder="quantity"  />
-			<button  type="submit"  id="add">Add</button>
-		</form>
-	);
-};
-export  default  AddItemForm;
-```
+Create file *AddItemForm.jsx* in *components* folder
 ### Write Add Item Form Component Logic
 ```js
 const  AddItemForm  = () => {
@@ -242,6 +207,7 @@ const  AddItemForm  = () => {
 ```
 ### Final - Import all components
 ```js
+// src/App.jsx
 import Item from  "./components/Item";
 import AddItemForm from  "./components/AddItemForm";
 
